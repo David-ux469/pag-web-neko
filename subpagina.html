@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neko - Gracias por tu compra</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fbeffb 0%, #e3f6fd 100%);
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><text x="0" y="40" font-size="40">🐾</text></svg>');
+      background-repeat: repeat;
+      background-size: 60px 60px;
+    }
+    /* Corazones flotantes kawaii */
+    .corazon-flotante {
+      position: absolute;
+      color: #e573b7;
+      font-size: 1.5rem;
+      opacity: 0.18;
+      animation: flotar 4s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .corazon-flotante.c1 { left: 10vw; top: 12vh; animation-delay: 0s; }
+    .corazon-flotante.c2 { left: 80vw; top: 18vh; animation-delay: 1.2s; }
+    .corazon-flotante.c3 { left: 25vw; top: 70vh; animation-delay: 2.1s; }
+    .corazon-flotante.c4 { left: 60vw; top: 80vh; animation-delay: 0.7s; }
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 0.18; }
+      50% { transform: translateY(-18px) scale(1.15); opacity: 0.28; }
+      100% { transform: translateY(0) scale(1); opacity: 0.18; }
+    }
+    .correo-destacado {
+      display: inline-block;
+      background: #fff;
+      color: #d32f6f;
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: 0.6rem 1.6rem;
+      border-radius: 18px;
+      margin: 1.2rem 0 2rem 0;
+      letter-spacing: 1px;
+      box-shadow: 0 1px 6px rgba(233,30,99,0.08);
+      border: 1.5px solid #ffe3f3;
+      user-select: all;
+      transition: border 0.2s, color 0.2s;
+      position: relative;
+    }
+    .correo-destacado::after {
+      content: ' 🐾';
+      font-size: 1.1rem;
+      position: absolute;
+      right: -1.7rem;
+      top: 0.1rem;
+      opacity: 0.5;
+      animation: saltar 2.5s infinite;
+    }
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px) scale(1.15); }
+    }
+    .correo-destacado:hover {
+      border: 1.5px solid #e573b7;
+      color: #e573b7;
+    }
+    .resumen-pedido {
+      background: #fff;
+      color: #d32f6f;
+      border-radius: 16px 16px 32px 16px;
+      padding: 1.1rem 1.5rem 1.5rem 1.5rem;
+      margin: 1.2rem auto 1.2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.08rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+      max-width: 320px;
+      gap: 0.5rem;
+      border: 2px solid #e3f6fd;
+      position: relative;
+      overflow: hidden;
+    }
+    .resumen-pedido .orejitas {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 18px;
+      z-index: 2;
+    }
+    .resumen-pedido .orejita {
+      width: 28px;
+      height: 28px;
+      background: #fff0fa;
+      border-radius: 60% 60% 0 0;
+      border: 2px solid #e573b7;
+      border-bottom: none;
+      position: relative;
+      box-shadow: 0 1px 4px rgba(233,30,99,0.07);
+    }
+    .resumen-pedido .orejita.izq { transform: rotate(-18deg); }
+    .resumen-pedido .orejita.der { transform: rotate(18deg); }
+    .resumen-pedido::before {
+      content: '🐱';
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0.7rem;
+      top: 0.7rem;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+    .resumen-pedido::after {
+      content: '❤';
+      font-size: 1.1rem;
+      position: absolute;
+      right: 1.1rem;
+      bottom: 0.7rem;
+      color: #e573b7;
+      opacity: 0.25;
+    }
+    .resumen-pedido img {
+      max-width: 90px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(233,30,99,0.07);
+      margin-bottom: 0.3rem;
+      border: 1.5px solid #e3f6fd;
+      background: #fff;
+    }
+    .instrucciones-pago {
+      background: #f8f8fa;
+      color: #7b5e7b;
+      border-radius: 12px 24px 12px 12px;
+      padding: 0.9rem 1.2rem;
+      margin: 1.2rem auto 1.2rem auto;
+      font-size: 0.98rem;
+      max-width: 350px;
+      box-shadow: 0 1px 4px rgba(233,30,99,0.05);
+      border: 1.5px dashed #e3f6fd;
+      position: relative;
+    }
+    .instrucciones-pago::before {
+      content: '✨';
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 1.1rem;
+      opacity: 0.25;
+    }
+    .mensaje-espera {
+      color: #b48bbd;
+      font-size: 1.01rem;
+      margin-bottom: 1.1rem;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .mensaje-espera span {
+      font-size: 1.1rem;
+    }
+    .btn-comprar {
+      margin-top: 0.7rem;
+      background: linear-gradient(90deg, #e573b7 60%, #e3f6fd 100%);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      padding: 0.5rem 1.3rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+    .btn-comprar:hover {
+      background: linear-gradient(90deg, #d32f6f 60%, #e573b7 100%);
+      box-shadow: 0 4px 16px rgba(233,30,99,0.13);
+      transform: scale(1.04);
+    }
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    h2 .gatito {
+      font-size: 1.5rem;
+      margin-left: 0.2rem;
+      animation: saltar 2.5s infinite;
+    }
+    .mensaje-final {
+      margin-top: 2.2rem;
+      color: #d32f6f;
+      font-size: 1.13rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .mensaje-final .carita {
+      font-size: 1.4rem;
+      margin-left: 0.2rem;
+      animation: saltar 2.5s infinite;
+    }
+  </style>
+</head>
+<body>
+  <span class="corazon-flotante c1">❤</span>
+  <span class="corazon-flotante c2">❤</span>
+  <span class="corazon-flotante c3">❤</span>
+  <span class="corazon-flotante c4">❤</span>
+  <header>
+    <div class="logo-nombre">
+      <img src="logo.png" alt="Logo nekø" id="logo" style="display:none;">
+      <h1>nekø</h1>
+      <p class="slogan">Moda con Estilo Felino</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="index.html#sobre">Sobre Nosotros</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+        <li><a href="subpagina.html" style="font-weight:bold; color:#d32f6f;">Gracias</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="seccion" style="text-align:center; background:rgba(255,255,255,0.88);">
+      <h2>¡Gracias por tu interés en nekø! <span class="gatito">😺</span></h2>
+      <div class="mensaje-espera"><span>⏳</span>Te responderemos en un plazo de <b>1 a 3 días</b> laborables.</div>
+      <p style="font-size:1.08rem; color:#d32f6f; margin-bottom:1.5rem;">Para finalizar tu pedido, mándanos un correo y nos pondremos en contacto contigo lo antes posible.<br>Recibirás el número de cuenta para realizar la transacción.</p>
+      <div class="correo-destacado" onclick="navigator.clipboard.writeText('nekoropa@gmx.es')" title="Haz clic para copiar">nekoropa@gmx.es</div>
+      <div id="resumen-pedido" class="resumen-pedido" style="display:none;">
+        <div class="orejitas">
+          <div class="orejita izq"></div>
+          <div class="orejita der"></div>
+        </div>
+      </div>
+      <a href="#" class="btn-comprar" style="font-size:1.08rem; margin-bottom:1.2rem;">Enviar correo a nekø</a>
+      <div class="instrucciones-pago">
+        <strong>¿Cómo sigue el proceso?</strong><br>
+        1. Haz clic en "Enviar correo a nekø".<br>
+        2. Te responderemos con el número de cuenta para que realices el pago.<br>
+        3. Una vez recibido el pago, te enviaremos tu camiseta nekø.<br>
+        <span style="color:#e573b7; font-weight:600;">¡Gracias por confiar en nosotros! <span style="font-size:1.1rem;">❤</span></span>
+      </div>
+      <div style="margin-top:2rem;">
+        <img src="neko diseño camiseta.png" alt="Camiseta nekø" style="max-width:180px; border-radius:12px; box-shadow:0 2px 8px rgba(233,30,99,0.08);">
+      </div>
+      <div class="mensaje-final">¡Te esperamos con mucha ilusión! <span class="carita">(=^･ω･^=)</span></div>
+    </section>
+    <section class="seccion" style="background:#e3f6fd33;">
+      <h2><span class="gatito">🐾</span> Promociones Especiales</h2>
+      <ul style="font-size:1.05rem; color:#d32f6f;">
+        <li>¡Todas las camisetas nekø a solo 20 €!</li>
+        <li>Envío gratis en pedidos superiores a 50 €</li>
+        <li>Descuentos exclusivos para miembros de la comunidad nekø</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 nekø. Todos los derechos reservados.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Mostrar resumen del pedido con imagen y precio
+    const producto = localStorage.getItem('productoSeleccionado');
+    const resumen = document.getElementById('resumen-pedido');
+    const productos = [
+      { nombre: 'Top Blanco', precio: '20€', imagen: 'top blanco.png' },
+      { nombre: 'Sudadera Neko', precio: '20€', imagen: 'sudadera neko blanco.png' },
+      { nombre: 'Camiseta Neko Gris', precio: '20€', imagen: 'neko diseño camiseta gris.png' },
+      { nombre: 'Camiseta Neko Rosa', precio: '20€', imagen: 'neko diseño camiseta.png' }
+    ];
+    if(resumen) {
+      if(producto) {
+        const prod = productos.find(p => p.nombre === producto);
+        resumen.innerHTML += prod ? `<img src="${prod.imagen}" alt="${prod.nombre}"><div>${prod.nombre}</div><div style='color:#e573b7;'>${prod.precio}</div>` : `Camiseta seleccionada: ${producto}`;
+        resumen.style.display = 'flex';
+      } else {
+        resumen.innerHTML += 'No has seleccionado ninguna camiseta. Puedes escribirnos para consultar o pedir cualquier modelo.';
+        resumen.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html>
