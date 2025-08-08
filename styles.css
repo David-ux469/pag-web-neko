@@ -1,0 +1,321 @@
+body {
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #fbeffb 0%, #e3f6fd 100%);
+  color: #2d2d2d;
+}
+header {
+  background: #fff0fa;
+  box-shadow: 0 4px 16px rgba(233, 30, 99, 0.08);
+  padding: 2.5rem 0 1.5rem 0;
+  text-align: center;
+  position: relative;
+}
+.logo-nombre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#logo {
+  width: 90px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+  background: #fff;
+}
+.logo-nombre h1 {
+  font-family: 'Pacifico', cursive, sans-serif;
+  font-size: 2.7rem;
+  color: #e573b7;
+  margin: 0.2rem 0 0 0;
+  letter-spacing: 2px;
+  position: relative;
+}
+.logo-nombre h1::after {
+  content: '🐾';
+  font-size: 1.5rem;
+  position: absolute;
+  right: -2.2rem;
+  top: 0.2rem;
+}
+.slogan {
+  font-size: 1.15rem;
+  color: #b48bbd;
+  margin-top: -0.3rem;
+  font-style: italic;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: #e573b7;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+nav a:hover {
+  background: #ffe3f3;
+  color: #d32f6f;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+}
+main {
+  max-width: 1000px;
+  margin: 2.5rem auto;
+  padding: 0 1.2rem;
+}
+.seccion {
+  margin-bottom: 3.5rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(233,30,99,0.07);
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+.seccion h2 {
+  color: #e573b7;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-top: 1.5rem;
+  background: linear-gradient(120deg, #fff0fa 60%, #e3f6fd 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(233,30,99,0.10);
+  padding: 2rem 1rem 2.5rem 1rem;
+  position: relative;
+}
+.producto {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(233,30,99,0.13);
+  padding: 1.1rem 1rem 1.3rem 1rem;
+  text-align: center;
+  transition: transform 0.22s, box-shadow 0.22s, border 0.22s;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #ffe3f3;
+  min-width: 210px;
+  max-width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+.producto:hover {
+  transform: translateY(-8px) scale(1.035) rotate(-1deg);
+  box-shadow: 0 12px 36px rgba(233,30,99,0.22);
+  border: 2px solid #e573b7;
+}
+.producto::before {
+  content: '🐱';
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  font-size: 1.3rem;
+  opacity: 0.13;
+  pointer-events: none;
+}
+.producto img {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 8px;
+  margin-bottom: 0.3rem;
+  box-shadow: 0 1px 4px rgba(233,30,99,0.07);
+  background: #fff;
+  border: 1.5px solid #e3f6fd;
+  transition: border 0.2s, box-shadow 0.2s;
+  cursor: zoom-in;
+}
+#modal-imagen {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30,20,40,0.75);
+  align-items: center;
+  justify-content: center;
+  animation: fadeInModal 0.2s;
+}
+#modal-imagen img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #0008;
+  background: #fff;
+  border: 2.5px solid #e573b7;
+  animation: zoomInModal 0.2s;
+}
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes zoomInModal {
+  from { transform: scale(0.92); opacity: 0.7; }
+  to { transform: scale(1); opacity: 1; }
+}
+.producto h3 {
+  margin: 0.2rem 0 0.1rem 0;
+  color: #d32f6f;
+  font-size: 1.08rem;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.producto p {
+  color: #7b5e7b;
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  min-height: 48px;
+}
+.producto strong {
+  display: inline-block;
+  background: linear-gradient(90deg, #e573b7 60%, #e3f6fd 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  letter-spacing: 1px;
+  padding: 0.35rem 1.1rem;
+  border-radius: 18px;
+  margin-top: 0.2rem;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+  font-weight: 600;
+}
+#form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#form-contacto input, #form-contacto textarea {
+  padding: 0.8rem;
+  border: 1.5px solid #e573b7;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff0fa;
+  color: #2d2d2d;
+  transition: border 0.2s;
+}
+#form-contacto input:focus, #form-contacto textarea:focus {
+  border: 2px solid #d32f6f;
+  outline: none;
+}
+#form-contacto button {
+  background: linear-gradient(90deg, #e573b7 60%, #e3f6fd 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+}
+#form-contacto button:hover {
+  background: linear-gradient(90deg, #d32f6f 60%, #e573b7 100%);
+  box-shadow: 0 4px 16px rgba(233,30,99,0.18);
+}
+#mensaje-enviado {
+  color: #d32f6f;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+footer {
+  background: #e573b7;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -2px 12px rgba(233,30,99,0.10);
+}
+/* Detalles decorativos de orejitas de gato en la cabecera */
+header::before, header::after {
+  content: '';
+  position: absolute;
+  top: 0.7rem;
+  width: 38px;
+  height: 38px;
+  background: #fff0fa;
+  border-radius: 50% 50% 0 0;
+  border: 2.5px solid #e573b7;
+  z-index: 1;
+}
+header::before {
+  left: 2.5rem;
+  transform: rotate(-18deg);
+}
+header::after {
+  right: 2.5rem;
+  transform: rotate(18deg);
+}
+.btn-comprar {
+  margin-top: 0.7rem;
+  background: linear-gradient(90deg, #e573b7 60%, #e3f6fd 100%);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 0.5rem 1.3rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+  letter-spacing: 1px;
+}
+.btn-comprar:hover {
+  background: linear-gradient(90deg, #d32f6f 60%, #e573b7 100%);
+  box-shadow: 0 4px 16px rgba(233,30,99,0.18);
+  transform: scale(1.06);
+}
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .productos {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem 0.3rem;
+  }
+  .producto {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1rem 0.5rem 1.1rem 0.5rem;
+  }
+  .seccion {
+    padding: 1.2rem 0.5rem;
+  }
+  header::before, header::after {
+    width: 28px;
+    height: 28px;
+    left: 0.7rem;
+    right: 0.7rem;
+  }
+}
+/* Google Fonts para Pacifico y Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
