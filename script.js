@@ -92,9 +92,9 @@ if (window.location.pathname.endsWith('subpagina.html')) {
   const producto = localStorage.getItem('productoSeleccionado') || '';
   const btnCorreo = document.querySelector('.btn-comprar');
   if (btnCorreo) {
-    let body = 'Hola, quiero finalizar mi compra de nekø.';
+    let body = 'Hola, quiero finalizar mi compra de nekø.\n\nPor favor, especifica:\n- Qué camiseta quieres\n- Tu talla\n\nTe enviaré el número de cuenta para realizar la transacción.';
     if (producto) {
-      body = `Hola, quiero comprar la camiseta: ${producto}.\nPor favor, envíame el número de cuenta para realizar la transacción.`;
+      body = `Hola, quiero comprar: ${producto}.\n\nPor favor, especifica tu talla.\n\nTe enviaré el número de cuenta para realizar la transacción.`;
     }
     btnCorreo.href = `mailto:nekoropa@gmx.es?subject=Pedido%20nekø&body=${encodeURIComponent(body)}`;
     btnCorreo.addEventListener('click', function() {

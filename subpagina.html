@@ -260,22 +260,15 @@
       <div class="instrucciones-pago">
         <strong>¿Cómo sigue el proceso?</strong><br>
         1. Haz clic en "Enviar correo a nekø".<br>
-        2. Te responderemos con el número de cuenta para que realices el pago.<br>
-        3. Una vez recibido el pago, te enviaremos tu camiseta nekø.<br>
+        2. envia tu talla y el modelo de camiseta que quieres.<br>
+        3. Te responderemos con el número de cuenta para que realices el pago.<br>
+        4. Una vez recibido el pago, te enviaremos tu camiseta nekø.<br>
         <span style="color:#e573b7; font-weight:600;">¡Gracias por confiar en nosotros! <span style="font-size:1.1rem;">❤</span></span>
       </div>
       <div style="margin-top:2rem;">
         <img src="neko diseño camiseta.png" alt="Camiseta nekø" style="max-width:180px; border-radius:12px; box-shadow:0 2px 8px rgba(233,30,99,0.08);">
       </div>
       <div class="mensaje-final">¡Te esperamos con mucha ilusión! <span class="carita">(=^･ω･^=)</span></div>
-    </section>
-    <section class="seccion" style="background:#e3f6fd33;">
-      <h2><span class="gatito">🐾</span> Promociones Especiales</h2>
-      <ul style="font-size:1.05rem; color:#d32f6f;">
-        <li>¡Todas las camisetas nekø a solo 20 €!</li>
-        <li>Envío gratis en pedidos superiores a 50 €</li>
-        <li>Descuentos exclusivos para miembros de la comunidad nekø</li>
-      </ul>
     </section>
   </main>
   <footer>
@@ -288,9 +281,9 @@
     const resumen = document.getElementById('resumen-pedido');
     const productos = [
       { nombre: 'Top Blanco', precio: '20€', imagen: 'top blanco.png' },
-      { nombre: 'Sudadera Neko', precio: '20€', imagen: 'sudadera neko blanco.png' },
-      { nombre: 'Camiseta Neko Gris', precio: '20€', imagen: 'neko diseño camiseta gris.png' },
-      { nombre: 'Camiseta Neko Rosa', precio: '20€', imagen: 'neko diseño camiseta.png' }
+      { nombre: 'Sudadera nekø', precio: '20€', imagen: 'sudadera neko blanco.png' },
+      { nombre: 'Camiseta nekø Gris', precio: '20€', imagen: 'neko diseño camiseta gris.png' },
+      { nombre: 'Camiseta nekø Rosa', precio: '20€', imagen: 'neko diseño camiseta.png' }
     ];
     if(resumen) {
       if(producto) {
@@ -301,6 +294,19 @@
         resumen.innerHTML += 'No has seleccionado ninguna camiseta. Puedes escribirnos para consultar o pedir cualquier modelo.';
         resumen.style.display = 'inline-block';
       }
+    }
+    
+    // Configurar el botón de correo con el mensaje que pide talla
+    const btnCorreo = document.querySelector('.btn-comprar');
+    if(btnCorreo) {
+      let body = 'Hola, quiero finalizar mi compra de nekø.\n\nPor favor, especifica:\n- Qué camiseta quieres\n- Tu talla\n\nTe enviaré el número de cuenta para realizar la transacción.';
+      if (producto) {
+        body = `Hola, quiero comprar: ${producto}.\n\nPor favor, especifica tu talla.\n\nTe enviaré el número de cuenta para realizar la transacción.`;
+      }
+      btnCorreo.href = `mailto:nekoropa@gmx.es?subject=Pedido%20nekø&body=${encodeURIComponent(body)}`;
+      btnCorreo.addEventListener('click', function() {
+        localStorage.removeItem('productoSeleccionado');
+      });
     }
   </script>
 </body>
