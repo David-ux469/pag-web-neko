@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neko - Urban Style</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <div class="logo-nombre">
       <!-- Aquí irá el logo o imagen del logo-->
-      <img src="logo.png" alt="Logo nekø" id="logo" style="display:none;">
+      <img src="logo.png" alt="Logo nekø" id="logo" style="display:none;" />
       <h1>nekø</h1>
       <p class="slogan">Moda Urbana underground</p>
     </div>
@@ -35,7 +35,7 @@
       </div>
       <!-- Modal para ampliar imagen -->
       <div id="modal-imagen" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(30,20,40,0.75);align-items:center;justify-content:center;">
-        <img id="modal-img" src="" alt="Prenda ampliada" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 4px 32px #0008;">
+        <img id="modal-img" src="" alt="Prenda ampliada" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 4px 32px #0008;" />
       </div>
     </section>
     <section id="sobre" class="seccion">
@@ -45,16 +45,47 @@
     <section id="contacto" class="seccion" style="background:rgba(34,34,34,0.95); position:relative;">
       <h2 style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">Contacto</h2>
       <form id="form-contacto" style="background:#333;padding:1.5rem 1rem;border-radius:0;box-shadow:0 2px 8px rgba(0,0,0,0.3);max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:1.1rem;border:2px solid #555;">
-        <input type="text" name="nombre" placeholder="Tu nombre" required style="padding:0.7rem;border:1.5px solid #555;border-radius:0;font-size:1rem;background:#222;color:#ffffff;">
-        <input type="email" name="email" placeholder="Tu email" required style="padding:0.7rem;border:1.5px solid #555;border-radius:0;font-size:1rem;background:#222;color:#ffffff;">
+        <input type="text" name="nombre" placeholder="Tu nombre" required style="padding:0.7rem;border:1.5px solid #555;border-radius:0;font-size:1rem;background:#222;color:#ffffff;" />
+        <input type="email" name="email" placeholder="Tu email" required style="padding:0.7rem;border:1.5px solid #555;border-radius:0;font-size:1rem;background:#222;color:#ffffff;" />
         <textarea name="mensaje" placeholder="Escribe tu mensaje" required style="padding:0.7rem;border:1.5px solid #555;border-radius:0;font-size:1rem;background:#222;color:#ffffff;"></textarea>
         <button type="submit" style="background:linear-gradient(90deg,#666 60%,#888 100%);color:#fff;border:none;border-radius:0;padding:0.8rem;font-size:1.08rem;font-weight:700;cursor:pointer;transition:background 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.3);text-transform:uppercase;letter-spacing:1px;">Enviar</button>
       </form>
       <div id="mensaje-enviado" style="display:none;margin-top:1.5rem;text-align:center;font-size:1.15rem;color:#ffffff;font-weight:600;background:#333;padding:1.1rem 1.5rem;border-radius:0;box-shadow:0 2px 8px rgba(0,0,0,0.3);max-width:400px;margin-left:auto;margin-right:auto;border:1px solid #555;">
-        ¡Gracias por contactarnos!<br>Te responderemos en 1 a 3 días.
+        ¡Gracias por contactarnos!<br />Te responderemos en 1 a 3 días.
       </div>
     </section>
   </main>
+
+  <section id="redes" style="background:#1a1a1a; padding:2.5rem 1rem; text-align:center; color:#eee; font-family: 'Arial Black', sans-serif; border-radius:12px; max-width:600px; margin:2rem auto;">
+    <h2 style="margin-bottom:1.2rem; font-size:1.9rem; letter-spacing:2px;">Síguenos en nuestras redes</h2>
+    <div style="display:flex; justify-content:center; gap:2.5rem; font-size:1.25rem;">
+      <a href="https://www.tiktok.com/@nek0urban" target="_blank" rel="noopener" style="
+        background: #69C9D0;
+        color: #111;
+        padding: 0.75rem 1.8rem;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(105, 201, 208, 0.6);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      ">
+        TikTok
+      </a>
+      <a href="https://www.instagram.com/nek0urban/" target="_blank" rel="noopener" style="
+        background: #E1306C;
+        color: #fff;
+        padding: 0.75rem 1.8rem;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(225, 48, 108, 0.6);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      ">
+        Instagram
+      </a>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2024 nekø. Todos los derechos reservados.</p>
   </footer>
