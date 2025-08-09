@@ -19,7 +19,7 @@ const productos = [
     precio: '20€'
   },
   {
-    nombre: 'Camiseta nekø Rosa',
+    nombre: 'Camiseta nekø blanca',
     descripcion: '',
     imagen: 'neko web blanco.png',
     precio: '20€'
