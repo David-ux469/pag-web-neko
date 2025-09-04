@@ -4,13 +4,13 @@ const productos = [
     nombre: 'Top Blanco',
     descripcion: '',
     imagen: 'neko top.png',
-    precio: '20€'
+    precio: '30€'
   },
   {
     nombre: 'Sudadera nekø',
     descripcion: '',
     imagen: 'sudadera neko.png',
-    precio: '20€'
+    precio: '30€'
   },
   {
     nombre: 'Camiseta nekø Gris',
