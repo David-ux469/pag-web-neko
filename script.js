@@ -29,7 +29,7 @@ const productos = [
 // Nueva colección
 const nuevaColeccion = [
   {
-    nombre: 'Nueva Camiseta',
+    nombre: 'skater camiseta',
     descripcion: '',
     imagen: 'nueva-camiseta.png',
     precio: '25€'
