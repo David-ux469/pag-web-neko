@@ -31,8 +31,8 @@ const nuevaColeccion = [
   {
     nombre: 'Nueva Camiseta',
     descripcion: '',
-    imagen: 'nueva camisetsa.png',
-    precio: '20€'
+    imagen: 'nueva-camiseta.png',
+    precio: '25€'
   }
 ];
 
