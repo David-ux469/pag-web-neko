@@ -26,6 +26,16 @@ const productos = [
   }
 ];
 
+// Nueva colección
+const nuevaColeccion = [
+  {
+    nombre: 'Nueva Camiseta',
+    descripcion: '',
+    imagen: 'nueva camisetsa.png',
+    precio: '20€'
+  }
+];
+
 function mostrarProductos() {
   const contenedor = document.getElementById('productos');
   contenedor.innerHTML = '';
@@ -55,7 +65,38 @@ function mostrarProductos() {
   });
 }
 
+function mostrarNuevaColeccion() {
+  const contenedor = document.getElementById('productos-nueva');
+  if (!contenedor) return;
+  contenedor.innerHTML = '';
+  nuevaColeccion.forEach(prod => {
+    const div = document.createElement('div');
+    div.className = 'producto';
+    div.innerHTML = `
+      <img src="${prod.imagen}" alt="${prod.nombre}" class="img-ampliable">
+      <h3>${prod.nombre}</h3>
+      <strong>${prod.precio}</strong>
+      <button class="btn-comprar">Comprar</button>
+    `;
+    // Ampliar imagen al hacer clic
+    div.querySelector('.img-ampliable').addEventListener('click', function(e) {
+      const modal = document.getElementById('modal-imagen');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = prod.imagen;
+      modalImg.alt = prod.nombre;
+      modal.style.display = 'flex';
+    });
+    // Botón comprar
+    div.querySelector('.btn-comprar').addEventListener('click', function() {
+      localStorage.setItem('productoSeleccionado', prod.nombre);
+      window.location.href = 'subpagina.html';
+    });
+    contenedor.appendChild(div);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', mostrarProductos);
+document.addEventListener('DOMContentLoaded', mostrarNuevaColeccion);
 
 // Cerrar modal al hacer clic fuera de la imagen o presionar Escape
 window.addEventListener('DOMContentLoaded', function() {
