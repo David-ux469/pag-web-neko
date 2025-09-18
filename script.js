@@ -32,7 +32,7 @@ const nuevaColeccion = [
     nombre: 'skater camiseta',
     descripcion: '',
     imagen: 'nueva-camiseta.png',
-    precio: '25€'
+    precio: '20€'
   }
 ];
 
